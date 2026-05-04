@@ -1,3 +1,4 @@
+// app/lib/content.ts
 // All editable content lives here. Bilingual via { en, es } pairs.
 
 export const business = {
@@ -10,7 +11,7 @@ export const business = {
   founded: 2005,
   yearsExp: 20,
   ownerFirst: "Ismael",
-  ownerFamily: "Bejarano family",
+  ownerFamily: "Camarillo family",
   serviceArea: {
     en: "Orange County · Riverside · San Diego County · Los Angeles",
     es: "Orange County · Riverside · San Diego County · Los Ángeles",
@@ -39,8 +40,8 @@ export const hero = {
   headlineLine2: { en: "One ladder.", es: "Una escalera." },
   headlineLine3: { en: "One family.", es: "Una familia." },
   sub: {
-    en: "Ismael Bejarano and his crew have painted the homes, offices, and warehouses of Southern California since 2005. We show up on time. We tape every edge. We clean up every night. The kind of paint job your neighbor asks about.",
-    es: "Ismael Bejarano y su equipo han pintado las casas, oficinas y almacenes del sur de California desde 2005. Llegamos a tiempo. Cubrimos cada borde. Limpiamos cada noche. El trabajo que tus vecinos van a notar.",
+    en: "Ismael Camarillo and his crew have painted the homes, offices, and warehouses of Southern California since 2005. We show up on time. We tape every edge. We clean up every night. The kind of paint job your neighbor asks about.",
+    es: "Ismael Camarillo y su equipo han pintado las casas, oficinas y almacenes del sur de California desde 2005. Llegamos a tiempo. Cubrimos cada borde. Limpiamos cada noche. El trabajo que tus vecinos van a notar.",
   },
   ctaPrimary: { en: "Get a free estimate", es: "Pedir presupuesto" },
   ctaSecondary: { en: "See recent work", es: "Ver trabajos" },

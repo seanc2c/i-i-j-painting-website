@@ -1,3 +1,4 @@
+// app/components/Story.tsx
 "use client";
 
 import { motion } from "motion/react";
@@ -109,7 +110,7 @@ export function Story() {
               { k: "Crew", v: "3-6 hands" },
               { k: "Region", v: "SoCal · OC · IE · SD" },
               { k: "Subs", v: "None. Ever." },
-              { k: "Lead", v: "Ismael Bejarano" },
+              { k: "Lead", v: "Ismael Camarillo" },
             ].map((item) => (
               <div
                 key={item.k}
