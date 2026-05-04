@@ -1,5 +1,4 @@
 // app/lib/content.ts
-// app/lib/content.ts
 // All editable content lives here. Bilingual via { en, es } pairs.
 
 export const business = {
@@ -241,7 +240,7 @@ export const testimonials = [
   {
     quote: {
       en: "Hard workers and very pleasant, too. Ismael and his workers were on time, courteous, polite, and they clean up every day before they leave.",
-      es: "Trabajan duro y son muy agradables. Ismael y sus trabajadores fueron puntuales, corteses y limpian todos los días antes de irse.",
+      es: "Trabajan duro y son muy agradables. Ismael y sus trabajadores fueron puntuales, corteses y limpiaban todos los días antes de irse.",
     },
     name: "Carmen Valdez",
     city: "Irvine, CA",

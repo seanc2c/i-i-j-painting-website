@@ -91,7 +91,7 @@ export function Story() {
             </p>
             <p className="font-body text-[16px] leading-[1.7] text-[color:var(--color-ink-soft)]">
               {t(
-                "What started as one painter and a 24-foot extension is now a small bilingual crew of family and longtime hands. We've never sub-contracted, and we never will. The name on the truck is the name doing the work.",
+                "What started as one painter and a 24-foot extension is now a small bilingual crew of family and longtime hands. We've never subcontracted, and we never will. The name on the truck is the name doing the work.",
                 "Lo que empezó con un pintor y una escalera de 24 pies ahora es un pequeño equipo bilingüe de familia y empleados de muchos años. Nunca hemos subcontratado, y nunca lo haremos. El nombre del camión es quien hace el trabajo."
               )}
             </p>
