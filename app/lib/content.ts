@@ -1,4 +1,5 @@
 // app/lib/content.ts
+// app/lib/content.ts
 // All editable content lives here. Bilingual via { en, es } pairs.
 
 export const business = {
@@ -11,7 +12,7 @@ export const business = {
   founded: 2005,
   yearsExp: 20,
   ownerFirst: "Ismael",
-  ownerFamily: "Bejarano family",
+  ownerFamily: "Camarillo family",
   serviceArea: {
     en: "Orange County · Riverside · San Diego County · Los Angeles",
     es: "Orange County · Riverside · San Diego County · Los Ángeles",
