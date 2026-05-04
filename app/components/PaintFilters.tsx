@@ -10,30 +10,13 @@ export function PaintFilters() {
       aria-hidden
     >
       <defs>
-        {/* Bristly edge — turbulence + displacement for organic brush feel */}
-        <filter id="brush" x="-5%" y="-25%" width="110%" height="150%">
+        {/* Light brush — small ragged edge, used on small UI bits */}
+        <filter id="brush" x="-10%" y="-30%" width="120%" height="160%">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.04 0.7"
-            numOctaves="2"
+            baseFrequency="0.018 0.55"
+            numOctaves="3"
             seed="3"
-            result="noise"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="noise"
-            scale="8"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-        {/* Heavier brush — used for big reveals */}
-        <filter id="brushHeavy" x="-8%" y="-30%" width="116%" height="160%">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.025 0.8"
-            numOctaves="2"
-            seed="5"
             result="noise"
           />
           <feDisplacementMap
@@ -44,17 +27,58 @@ export function PaintFilters() {
             yChannelSelector="G"
           />
         </filter>
-        {/* Drip filter — subtle vertical stretching for paint drips */}
-        <filter id="drip" x="-10%" y="-10%" width="120%" height="140%">
+        {/* Heavy brush — dramatic ragged paint edges. Big scale, low freq = */}
+        {/* fewer, larger displacement waves so the stroke looks like a real */}
+        {/* loaded bristle brush dragged across the surface. */}
+        <filter id="brushHeavy" x="-15%" y="-45%" width="130%" height="190%">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.9 0.05"
-            numOctaves="1"
+            baseFrequency="0.012 0.65"
+            numOctaves="3"
+            seed="6"
+            result="noise"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="26"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        {/* Wet-edge filter — bleeds the paint outward then composites on the */}
+        {/* base for that loaded-brush halo look. */}
+        <filter id="wetEdge" x="-15%" y="-45%" width="130%" height="190%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="halo" />
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.015 0.6"
+            numOctaves="3"
+            seed="9"
+            result="noise"
+          />
+          <feDisplacementMap
+            in="halo"
+            in2="noise"
+            scale="22"
+            result="wet"
+          />
+          <feMerge>
+            <feMergeNode in="wet" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* Drip filter — keeps drips ragged but readable */}
+        <filter id="drip" x="-25%" y="-10%" width="150%" height="150%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.9 0.04"
+            numOctaves="2"
             seed="1"
           />
           <feDisplacementMap
             in="SourceGraphic"
-            scale="3"
+            scale="2"
             xChannelSelector="R"
             yChannelSelector="G"
           />

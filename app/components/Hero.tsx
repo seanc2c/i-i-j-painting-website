@@ -4,9 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useI18n } from "../lib/i18n";
 import { hero, business } from "../lib/content";
-import { BlueprintScene } from "./BlueprintScene";
 import { BrushUnderline } from "./BrushUnderline";
-import { RollerWipe } from "./RollerWipe";
 import { Drips } from "./Drips";
 
 export function Hero() {
@@ -17,7 +15,6 @@ export function Hero() {
       id="top"
       className="relative min-h-[100svh] pt-24 md:pt-28 pb-20 overflow-hidden paint-strokes-bg"
     >
-      <RollerWipe color="var(--color-ink)" height={4} delay={0.2} />
       {/* Editorial split layout: text left, image right with blueprint margins */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end relative z-10">
         {/* TEXT COLUMN */}
@@ -177,10 +174,31 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Floating 3D scene (R3F) */}
-          <div className="absolute -bottom-8 -left-8 hidden md:block w-32 h-32 lg:w-40 lg:h-40">
-            <BlueprintScene />
-          </div>
+          {/* Decorative paint-can mark in place of the 3D scene */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.2 }}
+            className="absolute -bottom-6 -left-6 hidden md:flex flex-col items-start gap-2 bg-[color:var(--color-bone)] border border-[color:var(--color-ink)]/15 px-4 py-3"
+          >
+            <span className="font-mono text-[9px] tracking-[0.28em] text-[color:var(--color-ink-soft)]">
+              SAMPLE BOARD
+            </span>
+            <div className="flex gap-1.5">
+              <span
+                className="block w-7 h-7"
+                style={{ background: "var(--color-ink)" }}
+              />
+              <span
+                className="block w-7 h-7"
+                style={{ background: "var(--color-bone-deep)" }}
+              />
+              <span
+                className="block w-7 h-7"
+                style={{ background: "var(--color-terracotta)" }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

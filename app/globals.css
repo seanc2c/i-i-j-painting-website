@@ -212,72 +212,28 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   border: 1px solid var(--color-ink);
-  transition: all 320ms var(--ease-out-expo);
+  transition: background-color 280ms var(--ease-out-expo),
+              border-color 280ms var(--ease-out-expo),
+              transform 280ms var(--ease-out-expo);
   cursor: pointer;
   position: relative;
-  overflow: visible; /* allow drips to extend past the bottom */
-  isolation: isolate;
-}
-
-.btn-ink > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Drip wrapper — sits below content, drips fall on hover */
-.btn-ink::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background: var(--color-ink);
-  z-index: 0;
-}
-
-.btn-ink::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-terracotta);
-  transform: translateY(101%);
-  transition: transform 380ms var(--ease-out-expo);
-  z-index: 1;
 }
 
 .btn-ink > * {
   position: relative;
   z-index: 1;
-}
-
-.btn-ink:hover::after {
-  transform: translateY(0);
 }
 
 .btn-ink:hover {
+  background: var(--color-ink-deep);
   border-color: var(--color-terracotta);
 }
 
-/* Paint drips that fall from the bottom of buttons on hover */
-.btn-ink .drip,
-.btn-ghost .drip {
-  position: absolute;
-  top: 100%;
-  width: 3px;
-  background: var(--color-terracotta);
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: transform 700ms cubic-bezier(0.65, 0, 0.35, 1);
-  filter: url(#drip);
-  pointer-events: none;
-  z-index: 3;
-  border-radius: 0 0 50% 50%;
+/* Paint drips reveal on button hover (uses SVG teardrops in <Drips />) */
+.btn-ink:hover .drip-svg,
+.btn-ghost:hover .drip-svg {
+  transform: translate(-50%, 0) scaleY(1) !important;
 }
-.btn-ink:hover .drip,
-.btn-ghost:hover .drip { transform: scaleY(1); }
-
-.btn-ink .drip-1, .btn-ghost .drip-1 { left: 18%;  height: 16px; transition-delay: 100ms; }
-.btn-ink .drip-2, .btn-ghost .drip-2 { left: 47%;  height: 28px; transition-delay: 240ms; }
-.btn-ink .drip-3, .btn-ghost .drip-3 { left: 78%;  height: 12px; transition-delay: 380ms; }
 
 .btn-ghost {
   display: inline-flex;
