@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useI18n } from "../lib/i18n";
 import { services } from "../lib/content";
+import { RollerWipe } from "./RollerWipe";
 
 const colorMap: Record<string, string> = {
   terracotta: "var(--color-terracotta)",
@@ -14,7 +15,8 @@ const colorMap: Record<string, string> = {
 export function Services() {
   const { t } = useI18n();
   return (
-    <section id="services" className="py-28 md:py-36">
+    <section id="services" className="py-28 md:py-36 relative">
+      <RollerWipe color="var(--color-blueprint)" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-24">
           <div className="lg:col-span-4">

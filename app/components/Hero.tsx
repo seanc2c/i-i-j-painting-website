@@ -5,6 +5,9 @@ import Image from "next/image";
 import { useI18n } from "../lib/i18n";
 import { hero, business } from "../lib/content";
 import { BlueprintScene } from "./BlueprintScene";
+import { BrushUnderline } from "./BrushUnderline";
+import { RollerWipe } from "./RollerWipe";
+import { Drips } from "./Drips";
 
 export function Hero() {
   const { t } = useI18n();
@@ -12,8 +15,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] pt-24 md:pt-28 pb-20 overflow-hidden"
+      className="relative min-h-[100svh] pt-24 md:pt-28 pb-20 overflow-hidden paint-strokes-bg"
     >
+      <RollerWipe color="var(--color-ink)" height={4} delay={0.2} />
       {/* Editorial split layout: text left, image right with blueprint margins */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end relative z-10">
         {/* TEXT COLUMN */}
@@ -40,7 +44,7 @@ export function Hero() {
                     ease: [0.16, 1, 0.3, 1],
                     delay: 0.25 + i * 0.12,
                   }}
-                  className="block"
+                  className="block relative"
                   style={{
                     fontVariationSettings: `"opsz" 144, "SOFT" ${
                       i === 1 ? 100 : 30
@@ -53,6 +57,14 @@ export function Hero() {
                   }}
                 >
                   {t(line.en, line.es)}
+                  {i === 1 && (
+                    <BrushUnderline
+                      color="var(--color-terracotta)"
+                      delay={1.4}
+                      duration={1.5}
+                      thickness={20}
+                    />
+                  )}
                 </motion.span>
               )
             )}
@@ -76,9 +88,11 @@ export function Hero() {
             <a href="#estimate" className="btn-ink">
               <span>{t(hero.ctaPrimary.en, hero.ctaPrimary.es)}</span>
               <span className="opacity-70">→</span>
+              <Drips />
             </a>
             <a href="#work" className="btn-ghost">
               <span>{t(hero.ctaSecondary.en, hero.ctaSecondary.es)}</span>
+              <Drips />
             </a>
           </motion.div>
 

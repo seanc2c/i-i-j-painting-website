@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useI18n } from "../lib/i18n";
 import { portfolio } from "../lib/content";
+import { RollerWipe } from "./RollerWipe";
+import { Drips } from "./Drips";
 
 const paletteColor: Record<string, string> = {
   ink: "var(--color-ink)",
@@ -20,7 +22,11 @@ export function Portfolio() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="work" className="py-28 md:py-36 bg-[color:var(--color-paper)]">
+    <section
+      id="work"
+      className="py-28 md:py-36 bg-[color:var(--color-paper)] relative"
+    >
+      <RollerWipe color="var(--color-terracotta)" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-5">
@@ -79,14 +85,23 @@ export function Portfolio() {
                   sizes="(min-width: 768px) 30vw, 100vw"
                   className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                 />
+                {/* Brush-stroke paint sweep on hover */}
+                <span
+                  className="absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+                  style={{
+                    background: paletteColor[p.palette[1] ?? "terracotta"],
+                    mixBlendMode: "multiply",
+                    opacity: 0.45,
+                    filter: "url(#brushHeavy)",
+                    transitionTimingFunction: "cubic-bezier(0.65, 0, 0.35, 1)",
+                  }}
+                />
                 {/* Year tag */}
-                <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.28em] bg-[color:var(--color-ink)] text-[color:var(--color-bone)] px-2.5 py-1.5">
+                <span className="absolute top-4 left-4 font-mono text-[10px] tracking-[0.28em] bg-[color:var(--color-ink)] text-[color:var(--color-bone)] px-2.5 py-1.5 z-10">
                   {p.year}
                 </span>
-                {/* Hover ink */}
-                <span className="absolute inset-0 bg-[color:var(--color-ink)]/0 group-hover:bg-[color:var(--color-ink)]/10 transition-colors duration-500" />
                 {/* Palette dots */}
-                <div className="absolute bottom-4 left-4 flex gap-1.5">
+                <div className="absolute bottom-4 left-4 flex gap-1.5 z-10">
                   {p.palette.map((c) => (
                     <span
                       key={c}
@@ -180,6 +195,7 @@ export function Portfolio() {
                   className="self-start mt-4 btn-ghost"
                 >
                   {t("Close", "Cerrar")}
+                  <Drips />
                 </button>
               </div>
               <button

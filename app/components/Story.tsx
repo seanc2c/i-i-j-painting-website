@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useI18n } from "../lib/i18n";
+import { RollerWipe } from "./RollerWipe";
 
 export function Story() {
   const { t } = useI18n();
@@ -11,6 +12,7 @@ export function Story() {
       id="story"
       className="py-28 md:py-36 bg-[color:var(--color-bone)]/50 relative"
     >
+      <RollerWipe color="var(--color-sage)" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-16">
         {/* LEFT: image stack */}
         <div className="lg:col-span-5 relative">

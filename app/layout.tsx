@@ -3,6 +3,8 @@ import { Fraunces, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "./lib/i18n";
 import { SmoothScroll } from "./components/SmoothScroll";
+import { PaintFilters } from "./components/PaintFilters";
+import { PaintCursor } from "./components/PaintCursor";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -49,7 +51,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen">
         <I18nProvider>
+          <PaintFilters />
           <SmoothScroll />
+          <PaintCursor />
           {children}
         </I18nProvider>
       </body>

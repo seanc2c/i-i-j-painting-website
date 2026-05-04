@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { useI18n } from "../lib/i18n";
 import { business, trustBadges } from "../lib/content";
+import { RollerWipe } from "./RollerWipe";
+import { Drips } from "./Drips";
 
 export function Estimate() {
   const { t, lang } = useI18n();
@@ -35,6 +37,7 @@ export function Estimate() {
       id="estimate"
       className="dark-atmos py-28 md:py-36 relative overflow-hidden"
     >
+      <RollerWipe color="var(--color-terracotta)" height={5} />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 relative z-10">
         <div className="lg:col-span-5">
           <div className="flex items-center gap-3 mb-6">
@@ -157,6 +160,7 @@ export function Estimate() {
               >
                 <span>{t("Send to Ismael", "Enviar a Ismael")}</span>
                 <span className="opacity-70">→</span>
+                <Drips />
               </button>
             </form>
           ) : (

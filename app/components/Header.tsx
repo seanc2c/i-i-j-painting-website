@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useI18n } from "../lib/i18n";
 import { LogoMark } from "./LogoMark";
 import { business, nav } from "../lib/content";
+import { Drips } from "./Drips";
 
 export function Header() {
   const { lang, toggle, t } = useI18n();
@@ -78,6 +79,7 @@ export function Header() {
             className="hidden md:inline-flex btn-ink !py-2.5 !px-4"
           >
             <span>{t("Free Estimate", "Presupuesto")}</span>
+            <Drips />
           </a>
           <button
             className="lg:hidden flex flex-col gap-1.5 p-2 -mr-2"

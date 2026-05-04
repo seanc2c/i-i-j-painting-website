@@ -3,14 +3,16 @@
 import { motion } from "motion/react";
 import { useI18n } from "../lib/i18n";
 import { testimonials } from "../lib/content";
+import { RollerWipe } from "./RollerWipe";
 
 export function Voices() {
   const { t } = useI18n();
   return (
     <section
       id="voices"
-      className="py-28 md:py-36 bg-[color:var(--color-paper)]"
+      className="py-28 md:py-36 bg-[color:var(--color-paper)] relative"
     >
+      <RollerWipe color="var(--color-rust)" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-5">
