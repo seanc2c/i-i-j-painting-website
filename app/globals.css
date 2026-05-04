@@ -1,0 +1,343 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Surfaces ---- */
+  --color-bone: #f3ece1;          /* warm chalk primer */
+  --color-bone-deep: #e7dccb;
+  --color-paper: #fbf6ec;          /* page surface, slightly warmer */
+  --color-plaster: #f8efe0;
+  --color-canvas: #ede2cf;
+
+  /* ---- Ink (brand from logo) ---- */
+  --color-ink: #1a2238;            /* deep navy from logo */
+  --color-ink-deep: #0e1424;
+  --color-ink-soft: #2c3654;
+
+  /* ---- Paint accents ---- */
+  --color-terracotta: #c25e3c;     /* SoCal warm clay */
+  --color-terracotta-deep: #8d3f24;
+  --color-clay: #d97757;
+  --color-sage: #7d8a6a;            /* dusty olive — secondary */
+  --color-sage-deep: #4f5a40;
+  --color-blueprint: #2e497a;       /* technical blue accent */
+  --color-rust: #a8482a;
+  --color-saffron: #e3a447;         /* warm yellow for highlights */
+
+  /* ---- Type scale ---- */
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-manrope);
+  --font-mono: var(--font-jet);
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  color-scheme: light;
+  --grain-opacity: 0.65;
+}
+
+html, body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "kern", "calt";
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 12% 6%, rgba(194, 94, 60, 0.10), transparent 45%),
+    radial-gradient(ellipse at 88% 90%, rgba(26, 34, 56, 0.08), transparent 50%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.07 0 0 0 0 0.04 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
+/* ---- Display type — Fraunces with optical SOFT axis ---- */
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.font-display-tight {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-feature-settings: "ss01", "calt", "zero";
+  letter-spacing: 0.04em;
+}
+
+/* ---- Editorial typographic helpers ---- */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.eyebrow-on-dark {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(243, 236, 225, 0.65);
+}
+
+.section-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--color-terracotta);
+  text-transform: uppercase;
+}
+
+/* ---- Hairlines ---- */
+.hairline-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26, 34, 56, 0.18) 30%, rgba(26, 34, 56, 0.18) 70%, transparent);
+}
+
+.hairline-v {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(26, 34, 56, 0.15), transparent);
+}
+
+/* ---- Architectural blueprint corner marks (used for editorial framing) ---- */
+.blueprint-frame {
+  position: relative;
+}
+
+.blueprint-frame::before,
+.blueprint-frame::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--color-ink);
+  border-style: solid;
+  border-width: 0;
+}
+
+.blueprint-frame::before {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.blueprint-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* ---- Painted swatch chip ---- */
+.swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(26, 34, 56, 0.12);
+  position: relative;
+}
+
+.swatch::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--swatch-color, var(--color-ink));
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* ---- Brush stroke underline (for hover/emphasis) ---- */
+.brush-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.05em;
+  height: 0.55em;
+  background: var(--color-terracotta);
+  opacity: 0.2;
+  z-index: -1;
+  transform: skewX(-8deg);
+  transition: opacity 400ms var(--ease-out-expo);
+}
+
+.brush-underline:hover::after {
+  opacity: 0.45;
+}
+
+/* ---- Buttons ---- */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-ink);
+  transition: all 320ms var(--ease-out-expo);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-terracotta);
+  transform: translateY(101%);
+  transition: transform 380ms var(--ease-out-expo);
+  z-index: 0;
+}
+
+.btn-ink > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-ink:hover::after {
+  transform: translateY(0);
+}
+
+.btn-ink:hover {
+  border-color: var(--color-terracotta);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  color: var(--color-ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid rgba(26, 34, 56, 0.4);
+  background: transparent;
+  transition: all 280ms var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  border-color: var(--color-ink);
+}
+
+/* ---- Scroll-driven reveals ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms var(--ease-out-expo), transform 800ms var(--ease-out-expo);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Editorial column rule ---- */
+.column-rule {
+  border-left: 1px solid rgba(26, 34, 56, 0.12);
+  padding-left: 1.5rem;
+}
+
+/* ---- Painted-edge image mask ---- */
+.painted-edge {
+  --b: 0;
+  clip-path: polygon(
+    0% 0.5%, 4% 0%, 12% 0.7%, 24% 0%, 38% 0.6%, 52% 0%, 68% 0.7%, 82% 0%, 94% 0.6%, 100% 0%,
+    100% 99.5%, 96% 100%, 88% 99.4%, 76% 100%, 62% 99.6%, 48% 100%, 32% 99.4%, 18% 100%, 8% 99.6%, 0% 100%
+  );
+}
+
+/* ---- Marquee ---- */
+@keyframes scroll-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: scroll-x 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
+}
+
+/* ---- Atmospheric grain on dark sections ---- */
+.dark-atmos {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse at 10% 10%, rgba(194, 94, 60, 0.10), transparent 40%),
+    radial-gradient(ellipse at 90% 80%, rgba(46, 73, 122, 0.18), transparent 45%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  color: var(--color-bone);
+}
+
+/* ---- Lightbox overlay ---- */
+.lightbox-overlay {
+  background: rgba(14, 20, 36, 0.92);
+  backdrop-filter: blur(6px);
+}
+
+/* ---- Custom focus ring ---- */
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+/* ---- Number ticker (years/projects) ---- */
+.ticker {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
