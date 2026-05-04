@@ -11,7 +11,7 @@ export const business = {
   founded: 2005,
   yearsExp: 20,
   ownerFirst: "Ismael",
-  ownerFamily: "Camarillo family",
+  ownerFamily: "Bejarano family",
   serviceArea: {
     en: "Orange County · Riverside · San Diego County · Los Angeles",
     es: "Orange County · Riverside · San Diego County · Los Ángeles",
