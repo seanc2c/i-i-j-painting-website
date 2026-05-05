@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { Marquee } from "./components/Marquee";
 import { StatsRow } from "./components/StatsRow";
 import { Portfolio } from "./components/Portfolio";
+import { Gallery } from "./components/Gallery";
 import { Services } from "./components/Services";
 import { Strip } from "./components/Strip";
 import { Process } from "./components/Process";
@@ -22,6 +23,7 @@ export default function Home() {
         <Marquee />
         <StatsRow />
         <Portfolio />
+        <Gallery />
         <Services />
         <Strip />
         <Process />

@@ -27,6 +27,7 @@ export const business = {
 
 export const nav = [
   { href: "#work", en: "Work", es: "Proyectos" },
+  { href: "#gallery", en: "Gallery", es: "Galería" },
   { href: "#services", en: "Services", es: "Servicios" },
   { href: "#story", en: "Story", es: "Historia" },
   { href: "#voices", en: "Voices", es: "Testimonios" },
