@@ -1,12 +1,13 @@
 // app/lib/content.ts
 // app/lib/content.ts
+// app/lib/content.ts
 // All editable content lives here. Bilingual via { en, es } pairs.
 
 export const business = {
   name: "I & I J Painting",
   shortName: "I & I J",
-  phone: "(760) 669-6420",
-  phoneRaw: "+17606696420",
+  phone: "(951) 454-5566",
+  phoneRaw: "+19514545566",
   email: "info@iandijpainting.com",
   license: "CSLB #939153",
   founded: 2005,
