@@ -1,4 +1,5 @@
 // app/lib/content.ts
+// app/lib/content.ts
 // All editable content lives here. Bilingual via { en, es } pairs.
 
 export const business = {
@@ -27,6 +28,7 @@ export const nav = [
   { href: "#services", en: "Services", es: "Servicios" },
   { href: "#story", en: "Story", es: "Historia" },
   { href: "#voices", en: "Voices", es: "Testimonios" },
+  { href: "#contact", en: "Contact", es: "Contacto" },
   { href: "#estimate", en: "Free Estimate", es: "Presupuesto" },
 ];
 
