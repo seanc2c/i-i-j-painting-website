@@ -30,6 +30,7 @@ export const nav = [
   { href: "#services", en: "Services", es: "Servicios" },
   { href: "#story", en: "Story", es: "Historia" },
   { href: "#voices", en: "Voices", es: "Testimonios" },
+  { href: "/tips", en: "Tips & Ideas", es: "Ideas & Consejos" },
   { href: "#contact", en: "Contact", es: "Contacto" },
   { href: "#estimate", en: "Free Estimate", es: "Presupuesto" },
 ];
