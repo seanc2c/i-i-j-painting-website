@@ -23,6 +23,7 @@ export default function Home() {
         <Marquee />
         <StatsRow />
         <Portfolio />
+        <Gallery />
         <Services />
         <Strip />
         <Process />
