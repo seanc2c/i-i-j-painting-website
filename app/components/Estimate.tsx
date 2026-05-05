@@ -1,3 +1,4 @@
+// app/components/Estimate.tsx
 "use client";
 
 import { useState } from "react";
@@ -42,7 +43,7 @@ export function Estimate() {
         <div className="lg:col-span-5">
           <div className="flex items-center gap-3 mb-6">
             <span className="font-mono text-[11px] tracking-[0.28em] text-[color:var(--color-terracotta)]">
-              § 06
+              § 07
             </span>
             <span className="block w-6 h-px bg-[color:var(--color-terracotta)]" />
             <span className="eyebrow-on-dark">
